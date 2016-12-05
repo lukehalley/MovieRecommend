@@ -6,11 +6,13 @@ public class User {
 	private int userAge;
 	private char userGender;
 	private String userOccupation;
+	private long zipCode;
 
-	public User(String userName, int userAge, char userGender) {
+	public User(String userName, int userAge, char userGender, long zipCode) {
 		this.setUserName(userName);
 		this.setUserAge(userAge);
 		this.setUserGender(userGender);
+		this.setZipCode(zipCode);
 	}
 
 	public String getUserName() {
@@ -45,9 +47,18 @@ public class User {
 		this.userOccupation = userOccupation;
 	}
 
+	public long getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(long zipCode) {
+		this.zipCode = zipCode;
+	}
+
 	@Override
 	public String toString() {
-		return "USER NAME: '" + this.userName + "', USER AGE: '" + this.userAge + "USER GENDER" + this.userGender + "USER OCCUPATION" + this.userOccupation;
+		return "USER NAME: '" + this.userName + "', USER AGE: '" + this.userAge + "USER GENDER" + this.userGender
+				+ "USER OCCUPATION" + this.userOccupation;
 	}
 
 }

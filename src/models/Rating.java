@@ -3,14 +3,12 @@ package models;
 public class Rating {
 
 	private long userID;
-	private int userAge;
 	private long userRating;
 	private long userTimestamp;
 	private char userGender;
 
-	public Rating(long userID, int userAge, long userRating, long userTimestamp, char userGender) {
+	public Rating(long userID, long userRating, long userTimestamp, char userGender) {
 		this.setUserID(userID);
-		this.setUserAge(userAge);
 		this.setUserRating(userRating);
 		this.setUserTimestamp(userTimestamp);
 		this.setUserGender(userGender);
@@ -22,14 +20,6 @@ public class Rating {
 
 	public void setUserID(long userID) {
 		this.userID = userID;
-	}
-
-	public int getUserAge(int userAge) {
-		return userAge;
-	}
-
-	public void setUserAge(int userAge) {
-		this.userAge = userAge;
 	}
 
 	public long getUserRating() {
@@ -58,7 +48,7 @@ public class Rating {
 
 	@Override
 	public String toString() {
-		return "USER ID: '" + this.userID + "', USER AGE: '" + this.userAge + "USER RATING" + this.userRating + "USER TIMESTAMP" + this.userTimestamp + "USER GENDER" + this.userGender;
+		return "USER ID: '" + this.userID + "USER RATING" + this.userRating + "USER TIMESTAMP" + this.userTimestamp + "USER GENDER" + this.userGender;
 	}
 
 }

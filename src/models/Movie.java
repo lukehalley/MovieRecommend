@@ -38,8 +38,7 @@ public class Movie {
 
 	@Override
 	public String toString() {
-		return "MOVIE NAME: '" + this.movieName + "', MOVIE RELEASE DATE: '" + this.movieReleaseDate + "MOVIE URL"
-				+ this.movieURL;
+		return "MOVIE NAME: '" + this.movieName + "', MOVIE RELEASE DATE: '" + this.movieReleaseDate + "MOVIE URL" + this.movieURL;
 	}
 
 }
