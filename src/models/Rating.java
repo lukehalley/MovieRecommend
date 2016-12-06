@@ -3,15 +3,14 @@ package models;
 public class Rating {
 
 	private long userID;
-	private long userRating;
+	private long movieID;
+	private long movieRating;
 	private long userTimestamp;
-	private char userGender;
 
-	public Rating(long userID, long userRating, long userTimestamp, char userGender) {
+	public Rating(long userID, long movieID, long movieRating, long userTimestamp) {
 		this.setUserID(userID);
-		this.setUserRating(userRating);
+		this.setmovieRating(movieRating);
 		this.setUserTimestamp(userTimestamp);
-		this.setUserGender(userGender);
 	}
 
 	public long getUserID() {
@@ -22,12 +21,20 @@ public class Rating {
 		this.userID = userID;
 	}
 
-	public long getUserRating() {
-		return userRating;
+	public long getmovieRating() {
+		return movieRating;
 	}
 
-	public void setUserRating(long userRating) {
-		this.userRating = userRating;
+	public void setmovieRating(long movieRating) {
+		this.movieRating = movieRating;
+	}
+	
+	public long getMovieID() {
+		return movieID;
+	}
+
+	public void setMovieID(long movieID) {
+		this.movieID = movieID;
 	}
 
 	public long getUserTimestamp() {
@@ -37,18 +44,11 @@ public class Rating {
 	public void setUserTimestamp(long userTimestamp) {
 		this.userTimestamp = userTimestamp;
 	}
-	
-	public long getUserGender() {
-		return userGender;
-	}
-
-	public void setUserGender(char userGender) {
-		this.userGender = userGender;
-	}
 
 	@Override
 	public String toString() {
-		return "USER ID: '" + this.userID + "USER RATING" + this.userRating + "USER TIMESTAMP" + this.userTimestamp + "USER GENDER" + this.userGender;
+		return "USER ID: '" + this.userID + "USER RATING" + this.movieRating + "USER TIMESTAMP" 
+							+ this.userTimestamp;
 	}
 
 }

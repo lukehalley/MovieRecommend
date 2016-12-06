@@ -1,44 +1,41 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Movie {
+	
+	static Long counter = 0l;
+	public Long id;
+	public String title;
+	public String releaseDate;
+	public String url;
 
-	private String movieName;
-	private long movieReleaseDate;
-	private long movieURL;
-
-	public Movie(String movieName, long movieReleaseDate, long movieURL) {
-		this.setMovieName(movieName);
-		this.setMovieReleaseDate(movieReleaseDate);
-		this.setMovieURL(movieURL);
+	List<Rating> ratings = new ArrayList<Rating>();
+	
+	public Movie(String title, String releaseDate, String url) {
+		this.id = counter++;
+		this.title = title;
+		this.releaseDate = releaseDate;
+		this.url = url;
 	}
 
-	public String getMovieName() {
-		return movieName;
+	public void addRating(Rating newRating) {
+		ratings.add(newRating);
 	}
 
-	public void setMovieName(String movieName) {
-		this.movieName = movieName;
-	}
+	@SuppressWarnings("unused")
+	private double calculateAverageRating(List<Long> ratings) {
+		int sum = 0;
+		if (!ratings.isEmpty()) {
+			for (Long rating : ratings) {
+				sum += rating;
+			}
+			return (double) sum / ratings.size();
+		}
 
-	public long getMovieReleaseDate() {
-		return movieReleaseDate;
+		return sum;
 	}
-
-	public void setMovieReleaseDate(long movieReleaseDate) {
-		this.movieReleaseDate = movieReleaseDate;
-	}
-
-	public long getMovieURL() {
-		return movieURL;
-	}
-
-	public void setMovieURL(long movieURL) {
-		this.movieURL = movieURL;
-	}
-
-	@Override
-	public String toString() {
-		return "MOVIE NAME: '" + this.movieName + "', MOVIE RELEASE DATE: '" + this.movieReleaseDate + "MOVIE URL" + this.movieURL;
-	}
-
+	
+	
 }
