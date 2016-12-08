@@ -10,10 +10,11 @@ import models.Rating;
 import models.User;
 
 public class Importer {
-	
+
 	public static HashMap<Long, User> userMap = new HashMap<Long, User>();
 	public static HashMap<Long, Movie> movieMap = new HashMap<Long, Movie>();
 	public static ArrayList<Rating> ratingArray = new ArrayList<Rating>();
+
 	public static void ImportUsers() {
 
 		// Scanner
@@ -27,13 +28,11 @@ public class Importer {
 
 			inUsers.nextLine();
 
-			
-
 			while (inUsers.hasNextLine()) {
 
 				String userLine = inUsers.nextLine().trim();
 				String[] userTokens = userLine.split(delims);
-				
+
 				long userID = Long.parseLong(userTokens[0]);
 				String firstName = userTokens[1];
 				String lastName = userTokens[2];
@@ -45,7 +44,7 @@ public class Importer {
 				// output user data to console.
 				if (userTokens.length == 2) {
 					User u = new User(firstName, lastName, gender, age, occupation, zipCode);
-					userMap.put(new Long (userID), u);
+					userMap.put(new Long(userID), u);
 				} else {
 					inUsers.close();
 				}
@@ -66,7 +65,7 @@ public class Importer {
 		File moviesFile = new File("items5.txt");
 		Scanner inMovies;
 		try {
-			
+
 			inMovies = new Scanner(moviesFile);
 
 			String delims = "\t";
@@ -74,13 +73,11 @@ public class Importer {
 
 			inMovies.nextLine();
 
-			
-
 			while (inMovies.hasNextLine()) {
 
 				String movieLine = inMovies.nextLine().trim();
 				String[] movieTokens = movieLine.split(delims);
-				
+
 				long movieID = Long.parseLong(movieTokens[0]);
 				String title = movieTokens[1];
 				String releaseDate = movieTokens[2];
@@ -89,7 +86,7 @@ public class Importer {
 				// output movie data to console.
 				if (movieTokens.length == 2) {
 					Movie m = new Movie(title, releaseDate, url);
-					movieMap.put(new Long (movieID), m);
+					movieMap.put(new Long(movieID), m);
 				} else {
 					inMovies.close();
 				}
@@ -103,22 +100,20 @@ public class Importer {
 		}
 
 	}
-	
+
 	public static void ImportRatings() {
 
 		// Scanner
 		File ratingsFile = new File("ratings5.txt");
 		Scanner inRatings;
 		try {
-			
+
 			inRatings = new Scanner(ratingsFile);
 
 			String delims = "\t";
 			// each field in the file is separated (delimited) by a space.
 
 			inRatings.nextLine();
-
-			
 
 			while (inRatings.hasNextLine()) {
 
