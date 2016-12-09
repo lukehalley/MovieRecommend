@@ -26,7 +26,7 @@ public class Menu {
 			@Param(name = "url") String url) {
 		netFlox.addMovie(title, year, url);
 	}
-	
+
 	@Command(description = "Add a Rating")
 	public void addRating(@Param(name = "user ID") Long userID, @Param(name = "movie ID") Long movieID,
 			@Param(name = "movie rating") Long movieRating, @Param(name = "user timestamp") Long userTimestamp) {
