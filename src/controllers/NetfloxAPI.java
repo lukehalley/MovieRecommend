@@ -1,12 +1,14 @@
 package controllers;
 
+import java.util.List;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import models.Movie;
 import models.Rating;
 import models.User;
-import utils.MovieSerializer;
+import utils.FileSerializer;
 
 public class NetfloxAPI {
 
@@ -46,7 +48,13 @@ public class NetfloxAPI {
 	}
 	
 	public void storeInput() {
-		MovieSerializer.serializeMovies(movieIndex, ratingIndex, userIndex);
+		FileSerializer.serializeFiles(movieIndex, ratingIndex, userIndex);
+	}
+	
+	public List<Movie> getTop10Movies(){
+		List<Movie> movies = (List<Movie>) movieIndex.values();
+		Collections.sort(movies);
+		return movies.subList(1, 4);
 	}
 	
 

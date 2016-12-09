@@ -78,7 +78,7 @@ public class Movie implements Comparable<Movie> {
 
 	@Override
 	public int compareTo(Movie o) {
-		return Double.compare(calculateAverageRating(), o.calculateAverageRating()); // Collections.sort
+		return Double.compare(calculateAverageRating(), o.calculateAverageRating());
 	}
 
 }

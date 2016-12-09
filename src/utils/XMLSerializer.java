@@ -32,7 +32,15 @@ public class XMLSerializer implements Serializable {
 		stack.push(o);
 	}
 
-	public static Object pop(Map<Long, Movie> movies, Map<Long, Rating> ratings, Map<Long, User> users) {
+	public static Object popMovies(Map<Long, Movie> movies) {
+		return stack.pop();
+	}
+	
+	public static Object popUsers(Map<Long, User> users) {
+		return stack.pop();
+	}
+	
+	public static Object popRatings(Map<Long, Rating> ratings) {
 		return stack.pop();
 	}
 
