@@ -24,7 +24,7 @@ public class XMLSerializer implements Serializable {
 	private File file;
 
 	public XMLSerializer(File file) {
-		this.file = file;
+		this.setFile(file);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -63,5 +63,13 @@ public class XMLSerializer implements Serializable {
 				os.close();
 			}
 		}
+	}
+
+	public File getFile() {
+		return file;
+	}
+
+	public void setFile(File file) {
+		this.file = file;
 	}
 }

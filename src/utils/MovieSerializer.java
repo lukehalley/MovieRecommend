@@ -27,7 +27,6 @@ public class MovieSerializer {
 		XMLSerializer.pop(movies, ratings, users);
 		XMLSerializer.pop(movies, ratings, users);
 		
-		
 		String xml = (String) xstream.fromXML("serialisedData.xml");
 		return xml;
 	}
