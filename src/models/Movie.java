@@ -3,8 +3,8 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Movie {
-	
+public class Movie implements Comparable<Movie> {
+
 	static Long counter = 0l;
 	public Long id;
 	public String title;
@@ -13,6 +13,14 @@ public class Movie {
 
 	List<Rating> ratings = new ArrayList<Rating>();
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -56,18 +64,21 @@ public class Movie {
 		ratings.add(newRating);
 	}
 
-	@SuppressWarnings("unused")
-	private double calculateAverageRating(List<Long> ratings) {
+	public double calculateAverageRating() {
 		int sum = 0;
 		if (!ratings.isEmpty()) {
-			for (Long rating : ratings) {
-				sum += rating;
+			for (Rating rating : ratings) {
+				sum += rating.getmovieRating();
 			}
 			return (double) sum / ratings.size();
 		}
 
 		return sum;
 	}
-	
-	
+
+	@Override
+	public int compareTo(Movie o) {
+		return Double.compare(calculateAverageRating(), o.calculateAverageRating()); // Collections.sort
+	}
+
 }

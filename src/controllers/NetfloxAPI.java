@@ -6,6 +6,7 @@ import java.util.Map;
 import models.Movie;
 import models.Rating;
 import models.User;
+import utils.MovieSerializer;
 
 public class NetfloxAPI {
 
@@ -13,10 +14,6 @@ public class NetfloxAPI {
 	public Map<Long, Movie> movieIndex = new HashMap<>();
 	public Map<Long, Rating> ratingIndex = new HashMap<>();
 
-	public void LikeMoviesAPI() // Added Void
-	{
-
-	}
 
 	public User addUser(String firstName, String lastName, long age, String gender, String occupation, long zipCode) {
 		User user = new User(firstName, lastName, gender, age, occupation, zipCode);
@@ -47,5 +44,10 @@ public class NetfloxAPI {
 	public Rating getUserRatings(long userID) {
 		return ratingIndex.get(userID);
 	}
+	
+	public void storeInput() {
+		MovieSerializer.serializeMovies(movieIndex, ratingIndex, userIndex);
+	}
+	
 
 }
