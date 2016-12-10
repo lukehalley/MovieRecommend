@@ -16,7 +16,6 @@ public class NetfloxAPI {
 	public Map<Long, Movie> movieIndex = new HashMap<>();
 	public Map<Long, Rating> ratingIndex = new HashMap<>();
 
-
 	public User addUser(String firstName, String lastName, long age, String gender, String occupation, long zipCode) {
 		User user = new User(firstName, lastName, gender, age, occupation, zipCode);
 		userIndex.put(user.id, user);
@@ -28,7 +27,7 @@ public class NetfloxAPI {
 		movieIndex.put(movie.id, movie);
 		return movie;
 	}
-	
+
 	public Rating addRating(long userID, long movieID, long movieRating, long userTimestamp) {
 		Rating rating = new Rating(userID, movieID, movieRating, userTimestamp);
 		ratingIndex.put(rating.getUserID(), rating);
@@ -42,20 +41,19 @@ public class NetfloxAPI {
 	public Movie getMovie(long id) {
 		return movieIndex.get(id);
 	}
-	
+
 	public Rating getUserRatings(long userID) {
 		return ratingIndex.get(userID);
 	}
-	
+
+	public List<Movie> getTop10Movies() {
+		List<Movie> movies = (List<Movie>) movieIndex.values();
+		Collections.sort(movies);
+		return movies.subList(1, 10);
+	}
+
 	public void storeInput() {
 		FileSerializer.serializeFiles(movieIndex, ratingIndex, userIndex);
 	}
-	
-	public List<Movie> getTop10Movies(){
-		List<Movie> movies = (List<Movie>) movieIndex.values();
-		Collections.sort(movies);
-		return movies.subList(1, 4);
-	}
-	
 
 }
