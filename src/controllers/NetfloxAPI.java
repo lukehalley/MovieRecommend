@@ -47,9 +47,16 @@ public class NetfloxAPI {
 	}
 
 	public List<Movie> getTop10Movies() {
-		List<Movie> movies = (List<Movie>) movieIndex.values();
-		Collections.sort(movies);
-		return movies.subList(1, 10);
+		List<Movie> tenMovies = (List<Movie>) movieIndex.values();
+		Collections.sort(tenMovies);
+		return tenMovies.subList(1, 10);
+	}
+	
+	public List<Movie> getUserRecommendations(long userID) {
+		List<Movie> recMovies = (List<Movie>) movieIndex.values();
+		Collections.sort(recMovies);
+		//Go through the list and if the user hasnt rated it add it to the sublist
+		return recMovies.subList(1, 5);
 	}
 
 	public void storeInput() {

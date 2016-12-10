@@ -47,6 +47,11 @@ public class Menu {
 	public void getTop10Movies() {
 		netFlox.getTop10Movies();
 	}
+	
+	@Command(description = "Get User Recommendations")
+	public void getUserRecommendations(@Param(name = "user ID") Long userID) {
+		netFlox.getUserRecommendations(userID);
+	}
 
 	public void menu() throws Exception {
 		Menu menu = new Menu();
